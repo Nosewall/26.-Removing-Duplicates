@@ -1,16 +1,26 @@
-# This is a sample Python script.
+class Solution:
+    def removeDuplicates(self, nums) -> int:
+        prev = 0
+        index = 0
+        for i in range(len(nums)):
+            if index >= len(nums):
+                break
+            if i == 0:
+                prev = nums[i]
+                index = 1
+                pass
+            else:
+                if nums[index] == prev:
+                    nums.pop(index)
+                else:
+                    prev = nums[index]
+                    index += 1
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+        print(nums)
+        return len(nums)
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+sol = Solution()
+arr = [1,1]
+sol.removeDuplicates(arr)
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
